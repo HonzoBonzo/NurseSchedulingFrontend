@@ -26,12 +26,12 @@ gulp.task(`styles`, function() {
 gulp.task(`scripts`, function() {
   return gulp.src(`app/src/**/*.js`)
     .pipe(jshint(`.jshintrc`))
-    .pipe(jshint.reporter(`default`))
-    .pipe(concat(`main.js`))
+    // .pipe(jshint.reporter(`default`))
+    // .pipe(concat(`main.js`))
     .pipe(gulp.dest(`dist/assets/js`))
-    .pipe(rename({suffix: `.min`}))
-    .pipe(uglify())
-    .pipe(gulp.dest(`dist/assets/js`))
+    // .pipe(rename({suffix: `.min`}))
+    // .pipe(uglify())
+    // .pipe(gulp.dest(`dist/assets/js`))
     .pipe(notify({ message: `Scripts task completed` }))
     .pipe(livereload());
 });
@@ -44,8 +44,14 @@ gulp.task(`images`, function() {
   return gulp.src(`app/images/**/*`)
     .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
     .pipe(gulp.dest(`dist/assets/img`))
-    .pipe(notify({ message: `Images task completes` }))
+    .pipe(notify({ message: `Images task completed` }))
     .pipe(livereload());
+});
+
+gulp.task(`index`, function() {
+  return gulp.src(`index.html`)
+    .pipe(livereload())
+    .pipe(notify({ message: `index changed and reloaded` }));
 });
 
 gulp.task(`serve`, [`clean`], function() {
@@ -63,4 +69,5 @@ gulp.task(`watch`, function() {
   gulp.watch(`app/src/**/*.js`, [`scripts`]);
   // Watch image files
   gulp.watch(`app/images/**/*`, [`images`]);
+  gulp.watch(`index.html`, [`scripts`, `styles`]);
 });

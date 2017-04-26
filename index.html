@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Nurse Schedule</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="dist/assets/css/main.css">
+
 	<script src="node_modules/angular/angular.js"></script>
-    <script type="text/javascript" src="ScheduleDirective/ScheduleDirective.js"></script>
-</head>
-<body>
+	<script src="app/src/MainController.js"></script>
+<!--<script type="text/javascript" src="app/src/ScheduleDirective/ScheduleDirective.js"></script>-->
 
-<div ng-app="Schedule" ng-controller='ScheduleController'>
-	Hello Nurses!
-	<schedule-directive></schedule-directive>
-</div>
+	<head>
+		<title>Nurse Schedule</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="dist/assets/css/main.css">
+		
+	</head>
+	<body ng-app="myApp" ng-controller="MainController">
 
+		Hello {{firstname}}!</br>
+		<input type="text" ng-model="text"></br>
+		{{text}}</br>
+		<button ng-click="clickMe()">Click me!</button>
 
-</body>
+	</body>
 </html>
