@@ -19,7 +19,8 @@ gulp.task(`styles`, function() {
     .pipe(rename({suffix: `.min`}))
     .pipe(cssnano())
     .pipe(gulp.dest(`dist/assets/css`))
-    .pipe(notify({ message: `Styles task completed` }));
+    .pipe(notify({ message: `Styles task completed` }))
+    .pipe(livereload());
 });
 
 gulp.task(`scripts`, function() {
@@ -31,7 +32,8 @@ gulp.task(`scripts`, function() {
     .pipe(rename({suffix: `.min`}))
     .pipe(uglify())
     .pipe(gulp.dest(`dist/assets/js`))
-    .pipe(notify({ message: `Scripts task completed` }));
+    .pipe(notify({ message: `Scripts task completed` }))
+    .pipe(livereload());
 });
 
 gulp.task(`clean`, function() {
@@ -42,18 +44,23 @@ gulp.task(`images`, function() {
   return gulp.src(`app/images/**/*`)
     .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
     .pipe(gulp.dest(`dist/assets/img`))
-    .pipe(notify({ message: `Images task completes` }));
+    .pipe(notify({ message: `Images task completes` }))
+    .pipe(livereload());
 });
 
-gulp.task(`start`, [`clean`], function() {
-    gulp.start(`styles`, `scripts`);
+gulp.task(`serve`, [`clean`], function() {
+    gulp.start(`watch`, `styles`, `scripts`);
 });
 
 gulp.task(`watch`, function() {
+  // Create LiveReload server
+  livereload.listen();
+  // Watch any files in dist/, reload on change
+  gulp.watch(['dist/**']).on('change', livereload.changed);
   // Watch .scss files
-  gulp.watch(`app/src/styles/**/*.scss`, [`styles`]);
+  gulp.watch(`app/styles/**/*.scss`, [`styles`]);
   // Watch .js files
-  gulp.watch(`app/src/scripts/**/*.js`, [`scripts`]);
+  gulp.watch(`app/src/**/*.js`, [`scripts`]);
   // Watch image files
-  gulp.watch(`app/src/images/**/*`, [`images`]);
+  gulp.watch(`app/images/**/*`, [`images`]);
 });
