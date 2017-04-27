@@ -1,0 +1,16 @@
+#left-nav {
+	height: 100%;
+}
+.nav-content {
+	display: flex;
+	flex-flow: row wrap;
+
+	.nav-option {
+		width: 100%;
+	}
+	.nav-option--close {
+		width: 100%;
+		border-style: solid;
+    	border-bottom: 1px solid grey;
+	}
+}

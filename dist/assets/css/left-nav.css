@@ -1,0 +1,14 @@
+#left-nav {
+  height: 100%; }
+
+.nav-content {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap; }
+  .nav-content .nav-option {
+    width: 100%; }
+  .nav-content .nav-option--close {
+    width: 100%;
+    border-style: solid;
+    border-bottom: 1px solid grey; }

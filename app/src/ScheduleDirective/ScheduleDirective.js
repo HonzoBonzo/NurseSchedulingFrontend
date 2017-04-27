@@ -11,5 +11,6 @@
 // 	return {
 // 		template : '<h1>Pielegniarka: {{nurse.name}}</h1></br>'
 // 	}
+
 // })
 
