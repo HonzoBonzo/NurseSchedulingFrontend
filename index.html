@@ -4,6 +4,7 @@
 	<script src="node_modules/angular/angular.js"></script>
 	<script src="app/src/NavController.js"></script>
 	<script src="app/src/MainContentController.js"></script>
+	<script src="app/src/NurseScheduleController.js"></script>
 	<script src="node_modules/angular-material/angular-material.js"></script>
 	<script src="node_modules/angular-animate/angular-animate.js"></script>
 	<script src="node_modules/angular-aria/angular-aria.js"></script>
@@ -63,14 +64,44 @@
         </div>
         </br>
         
-        <div ng-controller="MainContentController" layout="column" ng-cloak>
+        <div layout="column" ng-cloak>
           <section layout="column" id="main-content" layout-padding>
             <div>
-              <div ng-if="flags.showHomeFlag">tu bedzie Home</div>
-              <div ng-if="flags.showFullScheduleFlag">tu bedzie FullSchedule</div>
-              <div ng-if="flags.showNurseScheduleFlag">tu bedzie NurseSchedule</div>
-              <div ng-if="flags.showCheckConstraintsFlag">tu bedzie CheckConstraints</div>
-              <div ng-if="flags.showGenerateScheduleFlag">tu bedzie GenerateSchedule</div>
+
+              <div ng-if="showMe">
+                tu bedzie Home
+              </div>
+
+              <div ng-if="showMe">
+                tu bedzie FullSchedule
+              </div>
+
+              <div ng-controller="NurseScheduleController as $ctrl">
+                <div ng-if="$ctrl.showMe">
+                  Choose nurse from select: </br>
+                  <md-input-container>
+                    <label>Nurses</label>
+                    <md-select ng-model="$ctrl.chosenNurse" md-selected-text="$ctrl.getSelectedText()" ng-change="$ctrl.changeNurse()">
+                      <md-optgroup label="nurses">
+                        <md-option ng-value="nurse" ng-repeat="nurse in $ctrl.nurses">{{nurse.name}}</md-option>
+                      </md-optgroup>
+                    </md-select>
+                  </md-input-container>
+
+                  <div ng-if="$ctrl.chosenNurse">
+                    tu bedzie grafik {{$ctrl.chosenNurse.name}}:P
+                  </div>
+                </div>
+              </div>
+
+              <div ng-if="showMe">
+                tu bedzie CheckConstraints
+              </div>
+              
+              <div ng-if="showMe">
+                tu bedzie GenerateSchedule
+              </div>
+            
             </div>
           </section>
         </div>
