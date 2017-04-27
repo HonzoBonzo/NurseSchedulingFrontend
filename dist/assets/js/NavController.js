@@ -1,16 +1,12 @@
 angular
   .module('myApp', ['ngMaterial'])
-  .controller('NavController', function ($scope, $timeout, $mdSidenav, $log) {
+  .controller('NavController', function ($scope, $rootScope, $timeout, $mdSidenav, $log) {
     $scope.toggleLeft = buildDelayedToggler('left');
     $scope.toggleRight = buildToggler('right');
     $scope.isOpenRight = function(){
       return $mdSidenav('right').isOpen();
     };
 
-    /**
-     * Supplies a function that will continue to operate until the
-     * time is up.
-     */
     function debounce(func, wait, context) {
       var timer;
 
@@ -25,39 +21,56 @@ angular
       };
     }
 
-    /**
-     * Build handler to open/close a SideNav; when animation finishes
-     * report completion in console
-     */
     function buildDelayedToggler(navID) {
       return debounce(function() {
-        // Component lookup should always be available since we are not using `ng-if`
         $mdSidenav(navID)
           .toggle()
           .then(function () {
-            $log.debug("toggle " + navID + " is done");
+            $log.debug('toggle ' + navID + ' is done');
           });
       }, 200);
     }
 
     function buildToggler(navID) {
       return function() {
-        // Component lookup should always be available since we are not using `ng-if`
         $mdSidenav(navID)
           .toggle()
           .then(function () {
-            $log.debug("toggle " + navID + " is done");
+            $log.debug('toggle ' + navID + ' is done');
           });
       };
     }
   })
-  .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+  .controller('LeftCtrl', function ($scope, $rootScope, $timeout, $mdSidenav, $log) {
     $scope.close = function () {
-      // Component lookup should always be available since we are not using `ng-if`
       $mdSidenav('left').close()
         .then(function () {
-          $log.debug("close LEFT is done");
+          $log.debug('close LEFT is done');
         });
-
     };
+
+    $scope.showHome = function () {
+      $mdSidenav('left').close()
+      $rootScope.$emit('home', {})
+    }
+
+    $scope.showFullSchedule = function () {
+      $mdSidenav('left').close()
+      $rootScope.$emit('fullSchedule', {})
+    }
+
+    $scope.showNurseSchedule = function () {
+      $mdSidenav('left').close()
+      $rootScope.$emit('nurseSchedule', {})
+    }
+
+    $scope.showCheckConstraints = function () {
+      $mdSidenav('left').close()
+      $rootScope.$emit('constraints', {})
+    }
+
+    $scope.showGenerateSchedule = function () {
+      $mdSidenav('left').close()
+      $rootScope.$emit('generate', {})
+    }
   });

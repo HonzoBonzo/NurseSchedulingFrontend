@@ -19,7 +19,7 @@ gulp.task(`styles`, function() {
     .pipe(rename({suffix: `.min`}))
     .pipe(cssnano())
     .pipe(gulp.dest(`dist/assets/css`))
-    .pipe(notify({ message: `Styles task completed` }))
+    // .pipe(notify({ message: `Styles task completed` }))
     .pipe(livereload());
 });
 
@@ -32,7 +32,7 @@ gulp.task(`scripts`, function() {
     // .pipe(rename({suffix: `.min`}))
     // .pipe(uglify())
     // .pipe(gulp.dest(`dist/assets/js`))
-    .pipe(notify({ message: `Scripts task completed` }))
+    // .pipe(notify({ message: `Scripts task completed` }))
     .pipe(livereload());
 });
 
@@ -44,14 +44,14 @@ gulp.task(`images`, function() {
   return gulp.src(`app/images/**/*`)
     .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
     .pipe(gulp.dest(`dist/assets/img`))
-    .pipe(notify({ message: `Images task completed` }))
+    // .pipe(notify({ message: `Images task completed` }))
     .pipe(livereload());
 });
 
 gulp.task(`index`, function() {
   return gulp.src(`index.html`)
     .pipe(livereload())
-    .pipe(notify({ message: `index changed and reloaded` }));
+    // .pipe(notify({ message: `index changed and reloaded` }));
 });
 
 gulp.task(`serve`, [`clean`], function() {
