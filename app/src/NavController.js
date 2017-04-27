@@ -26,7 +26,7 @@ angular
         $mdSidenav(navID)
           .toggle()
           .then(function () {
-            $log.debug('toggle ' + navID + ' is done');
+            // $log.debug('toggle ' + navID + ' is done');
           });
       }, 200);
     }
@@ -36,7 +36,7 @@ angular
         $mdSidenav(navID)
           .toggle()
           .then(function () {
-            $log.debug('toggle ' + navID + ' is done');
+            // $log.debug('toggle ' + navID + ' is done');
           });
       };
     }
@@ -45,7 +45,7 @@ angular
     $scope.close = function () {
       $mdSidenav('left').close()
         .then(function () {
-          $log.debug('close LEFT is done');
+          // $log.debug('close LEFT is done');
         });
     };
 
