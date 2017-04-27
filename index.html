@@ -29,17 +29,17 @@
 				md-component-id="left"
 				md-is-locked-open="$mdMedia('gt-md')"
 				md-whiteframe="4">
-
-			<md-toolbar class="md-theme-indigo">
-				<h1 class="md-toolbar-tools">Menu</h1>
-			</md-toolbar>
-			<md-content layout-padding ng-controller="LeftCtrl" class="nav-content">
-				<md-button ng-click="close()" class="md-accent nav-option--close">Close Sidenav</md-button>
-				<md-button class="md-primary nav-option">Full scheudle</md-button>
-				<md-button class="md-primary nav-option">Schedule for nurse</md-button>
-				<md-button class="md-primary nav-option">Check Constraints</md-button>
-				<md-button class="md-primary nav-option">Generate new schedule</md-button>
-			</md-content>
+				
+				<md-toolbar class="md-theme-indigo">
+					<h1 class="md-toolbar-tools">Menu</h1>
+				</md-toolbar>
+				<md-content ng-controller="LeftCtrl" class="nav-content">
+					<md-button class="md-primary nav-option naw-option--normal">Full scheudle</md-button>
+					<md-button class="md-primary nav-option naw-option--normal">Schedule for nurse</md-button>
+					<md-button class="md-primary nav-option naw-option--normal">Check Constraints</md-button>
+					<md-button class="md-primary nav-option naw-option--normal">Generate new schedule</md-button>
+					<md-button ng-click="close()" class="md-warn nav-option nav-option--close">Close Sidenav</md-button>
+				</md-content>
 
 			</md-sidenav>
 

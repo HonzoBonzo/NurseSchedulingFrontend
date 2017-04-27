@@ -1,5 +1,10 @@
-#left-nav {
-	height: 100%;
+$h1_font_size: 30px;
+$menu_font_size: 20px;
+
+.md-toolbar-tools {
+	display: flex;
+	justify-content: center;
+	font-size: $h1_font_size;
 }
 .nav-content {
 	display: flex;
@@ -7,10 +12,14 @@
 
 	.nav-option {
 		width: 100%;
+		padding: 5px 0px 5px 0px;
+		margin: 0px;
+		font-size: $menu_font_size;
+	}
+	.naw-option--normal {
+    	border-bottom: 1px solid rgba(0.1, 0.1, 0.1, 0.2);
 	}
 	.nav-option--close {
-		width: 100%;
-		border-style: solid;
     	border-bottom: 1px solid grey;
 	}
 }
