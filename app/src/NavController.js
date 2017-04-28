@@ -51,26 +51,31 @@ angular
 
     $scope.showHome = function () {
       $mdSidenav('left').close()
+      $rootScope.$emit('hide', {})
       $rootScope.$emit('home', {})
     }
 
     $scope.showFullSchedule = function () {
       $mdSidenav('left').close()
+      $rootScope.$emit('hide', {})
       $rootScope.$emit('fullSchedule', {})
     }
 
     $scope.showNurseSchedule = function () {
       $mdSidenav('left').close()
+      $rootScope.$emit('hide', {})
       $rootScope.$emit('nurseSchedule', {})
     }
 
     $scope.showCheckConstraints = function () {
       $mdSidenav('left').close()
+      $rootScope.$emit('hide', {})
       $rootScope.$emit('constraints', {})
     }
 
     $scope.showGenerateSchedule = function () {
       $mdSidenav('left').close()
-      $rootScope.$emit('generate', {})
+      $rootScope.$emit('hide', {})
+      $rootScope.$emit('generator', {})
     }
   });

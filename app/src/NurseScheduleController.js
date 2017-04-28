@@ -37,7 +37,12 @@ app.controller('NurseScheduleController', function($scope, $rootScope) {
     }
   };
 
+  $rootScope.$on("hide", function() {
+    vm.showMe = false;
+  })
+
   $rootScope.$on("nurseSchedule", function() {
     vm.showMe = true;
+    vm.chosenNurse = undefined;
   })
 })

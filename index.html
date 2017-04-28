@@ -4,7 +4,11 @@
 	<script src="node_modules/angular/angular.js"></script>
 	<script src="app/src/NavController.js"></script>
 	<script src="app/src/MainContentController.js"></script>
+	<script src="app/src/HomeController.js"></script>
+	<script src="app/src/FullScheduleController.js"></script>
 	<script src="app/src/NurseScheduleController.js"></script>
+	<script src="app/src/ConstraintsController.js"></script>
+	<script src="app/src/GeneratorController.js"></script>
 	<script src="node_modules/angular-material/angular-material.js"></script>
 	<script src="node_modules/angular-animate/angular-animate.js"></script>
 	<script src="node_modules/angular-aria/angular-aria.js"></script>
@@ -68,12 +72,15 @@
           <section layout="column" id="main-content" layout-padding>
             <div>
 
-              <div ng-if="showMe">
-                tu bedzie Home
+              <div ng-controller="HomeController as $ctrl">
+                <div ng-if="$ctrl.showMe">
+                  tu bedzie Home
+                </div>
               </div>
-
-              <div ng-if="showMe">
-                tu bedzie FullSchedule
+              <div ng-controller="FullScheduleController as $ctrl">
+                <div ng-if="$ctrl.showMe">
+                  tu bedzie FullSchedule
+                </div>
               </div>
 
               <div ng-controller="NurseScheduleController as $ctrl">
@@ -94,12 +101,16 @@
                 </div>
               </div>
 
-              <div ng-if="showMe">
-                tu bedzie CheckConstraints
+              <div ng-controller="ConstraintsController as $ctrl">
+                <div ng-if="$ctrl.showMe">
+                  tu bedzie CheckConstraints
+                </div>
               </div>
               
-              <div ng-if="showMe">
-                tu bedzie GenerateSchedule
+              <div ng-controller="GeneratorController as $ctrl">
+                <div ng-if="$ctrl.showMe">
+                  tu bedzie GenerateSchedule
+                </div>
               </div>
             
             </div>
