@@ -94,8 +94,15 @@
                     </md-select>
                   </md-input-container>
 
-                  <div ng-if="$ctrl.chosenNurse">
+                  <div layout="column" ng-if="$ctrl.chosenNurse">
                     tu bedzie grafik {{$ctrl.chosenNurse.name}}:P
+                    </br>
+                    <div ng-repeat="day in $ctrl.nurseJson.days track by $index">
+                      <div ng-if="$ctrl.checkBreak($index)">
+                        </br>
+                      </div>
+                      {{$ctrl.getDayName(day.dayId)}} {{day.dayId+1}} {{day.signature}}
+                    </div>
                   </div>
                 </div>
               </div>
