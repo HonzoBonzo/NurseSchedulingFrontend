@@ -74,7 +74,7 @@
 
               <div ng-controller="HomeController as $ctrl">
                 <div ng-if="$ctrl.showMe">
-                  tu bedzie Home
+                  Hello in Nurse Scheduling Problem Application (NSPA)
                 </div>
               </div>
               <div ng-controller="FullScheduleController as $ctrl">
@@ -85,7 +85,6 @@
 
               <div ng-controller="NurseScheduleController as $ctrl">
                 <div ng-if="$ctrl.showMe">
-                  Choose nurse from select: </br>
                   <md-input-container>
                     <label>Nurses</label>
                     <md-select ng-model="$ctrl.chosenNurse" md-selected-text="$ctrl.getSelectedText()" ng-change="$ctrl.changeNurse()">
