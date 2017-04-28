@@ -94,14 +94,28 @@
                     </md-select>
                   </md-input-container>
 
-                  <div layout="column" ng-if="$ctrl.chosenNurse">
-                    tu bedzie grafik {{$ctrl.chosenNurse.name}}:P
+                  <div ng-if="$ctrl.chosenNurse">
                     </br>
-                    <div ng-repeat="day in $ctrl.nurseJson.days track by $index">
-                      <div ng-if="$ctrl.checkBreak($index)">
-                        </br>
+
+                    <div layout="row" >
+                      <div ng-repeat="name in $ctrl.DAY_NAMES" class="c-label" md-whiteframe="7">
+                        <span>{{name}}</span>
                       </div>
-                      {{$ctrl.getDayName(day.dayId)}} {{day.dayId+1}} {{day.signature}}
+                    </div>
+
+                    <div layout="row" 
+                      ng-repeat="week in $ctrl.weekJson.weeks track by $index">
+                      <div ng-repeat="day in week" 
+                        class="c-day"
+                        ng-class="
+                          day.signature==='E' ? 'c-day--early' 
+                            : (day.signature==='D' ? 'c-day--day' 
+                            : (day.signature==='L' ? 'c-day--late' 
+                            : (day.signature==='N' ? 'c-day--night' 
+                            : 'c-day--off')))" 
+                        md-whiteframe="7">
+                        <span>{{day.dayId}}:{{day.signature}}</span>
+                      </div>
                     </div>
                   </div>
                 </div>

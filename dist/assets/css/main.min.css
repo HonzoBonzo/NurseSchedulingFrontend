@@ -1,1 +1,1 @@
-body{height:100%}
+body{height:100%}.c-day,.c-label{height:100px;width:100px;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;margin:5px}.c-day{opacity:.85;font-size:30px}.c-day:hover{opacity:1;font-size:40px;transition:.1s linear}.c-day--early{background:#ff0}.c-day--day{background:orange}.c-day--late{background:grey;color:#fff}.c-day--night{background:#000;color:#fff}.c-day--off{background:#fff;color:#000}

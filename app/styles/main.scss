@@ -1,3 +1,52 @@
 body {
     height: 100%;
 }
+
+.c-label{
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+.c-day{
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    opacity: 0.85;
+    font-size: 30px;
+    &:hover{
+        opacity: 1;
+        font-size: 40px;
+        transition: 0.1s linear;
+    }
+}
+
+.c-day--early{
+    background: yellow;
+}
+
+.c-day--day{
+    background: orange;
+}
+
+.c-day--late{
+    background: grey;
+    color: white;
+}
+
+.c-day--night{
+    background: black;
+    color: white;
+}
+
+.c-day--off{
+    background: white;
+    color: black;
+}
+
+
