@@ -13,6 +13,11 @@ var connect = require(`gulp-connect`);
 var del = require(`del`);
 var open = require(`gulp-open`);
 var sequnce = require(`gulp-run-sequence`);
+var nodemon = require('gulp-nodemon');
+
+gulp.task(`nodemon`, function() {
+  nodemon({script: '../NurseSchedulingServer/app.js'})
+})
 
 gulp.task(`open`, function() {
   var options = {
@@ -75,7 +80,15 @@ gulp.task(`connect`, function() {
 gulp.task('default', ['watch', 'connect']);
 
 gulp.task(`serve`, function() {
-    sequnce('clean', 'styles', 'scripts', 'open', `connect`, `watch`, function() {
+    sequnce(
+      'nodemon', 
+      'clean', 
+      'styles', 
+      'scripts', 
+      'open', 
+      `connect`, 
+      `watch`, 
+      function() {
       console.log('Gulp serving and watching for changes...')
     })
 });
