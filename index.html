@@ -3,7 +3,6 @@
 
 	<script src="node_modules/angular/angular.js"></script>
 	<script src="app/src/NavController.js"></script>
-	<script src="app/src/MainContentController.js"></script>
 	<script src="app/src/HomeController.js"></script>
 	<script src="app/src/FullScheduleController.js"></script>
 	<script src="app/src/NurseScheduleController.js"></script>
@@ -83,43 +82,43 @@
           <section layout="column" id="main-content" layout-padding>
             <div>
 
-              <div ng-controller="HomeController as $ctrl">
-                <div ng-if="$ctrl.showMe">
+              <div ng-controller="HomeController as $homeCtrl">
+                <div ng-if="$homeCtrl.showMe">
                   Hello in Nurse Scheduling Problem Application (NSPA)
                 </div>
               </div>
-              <div ng-controller="FullScheduleController as $ctrl">
-                <div ng-if="$ctrl.showMe">
+              <div ng-controller="FullScheduleController as $fullCtrl">
+                <div ng-if="$fullCtrl.showMe">
                   tu bedzie FullSchedule
                 </div>
               </div>
 
-              <div ng-controller="NurseScheduleController as $ctrl">
-                <div ng-if="$ctrl.showMe">
+              <div ng-controller="NurseScheduleController as $nurseCtrl">
+                <div ng-if="$nurseCtrl.showMe">
                   <md-input-container>
                     <label>Nurses</label>
-                    <md-select ng-model="$ctrl.chosenNurse" 
-                      md-selected-text="$ctrl.getSelectedText()" 
-                      ng-change="$ctrl.changeNurse()">
+                    <md-select ng-model="$nurseCtrl.chosenNurse" 
+                      md-selected-text="$nurseCtrl.getSelectedText()" 
+                      ng-change="$nurseCtrl.changeNurse()">
                       <md-optgroup label="nurses">
-                        <md-option ng-value="nurse" ng-repeat="nurse in $ctrl.nurses">
+                        <md-option ng-value="nurse" ng-repeat="nurse in $nurseCtrl.nurses">
                           {{nurse.name}}
                         </md-option>
                       </md-optgroup>
                     </md-select>
                   </md-input-container>
 
-                  <div ng-if="$ctrl.chosenNurse">
+                  <div ng-if="$nurseCtrl.chosenNurse">
                     </br>
 
                     <div layout="row" >
-                      <div ng-repeat="name in $ctrl.DAY_NAMES" class="c-label" md-whiteframe="7">
+                      <div ng-repeat="name in $nurseCtrl.DAY_NAMES" class="c-label" md-whiteframe="7">
                         <span>{{name}}</span>
                       </div>
                     </div>
 
                     <div layout="row" 
-                      ng-repeat="week in $ctrl.weekJson.weeks track by $index">
+                      ng-repeat="week in $nurseCtrl.weekJson.weeks track by $index">
                       <div ng-repeat="day in week" 
                         class="c-day"
                         ng-class="
@@ -136,14 +135,14 @@
                 </div>
               </div>
 
-              <div ng-controller="ConstraintsController as $ctrl">
-                <div ng-if="$ctrl.showMe">
+              <div ng-controller="ConstraintsController as $constrCtrl">
+                <div ng-if="$constrCtrl.showMe">
                   tu bedzie CheckConstraints
                 </div>
               </div>
               
-              <div ng-controller="GeneratorController as $ctrl">
-                <div ng-if="$ctrl.showMe">
+              <div ng-controller="GeneratorController as $genCtrl">
+                <div ng-if="$genCtrl.showMe">
                   tu bedzie GenerateSchedule
                 </div>
               </div>
