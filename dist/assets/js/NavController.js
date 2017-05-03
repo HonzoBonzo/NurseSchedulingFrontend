@@ -42,40 +42,71 @@ angular
     }
   })
   .controller('LeftCtrl', function ($scope, $rootScope, $timeout, $mdSidenav, $log) {
-    $scope.close = function () {
+    var vm = this;
+    vm.homeFlag = false;
+    vm.fullScheduleFlag = false;
+    vm.nurseScheduleFlag = false;
+    vm.constraintsFlag = false;
+    vm.generatorFlag = true;
+
+    vm.clearFlags = function() {
+      vm.homeFlag = false;
+      vm.fullScheduleFlag = false;
+      vm.nurseScheduleFlag = false;
+      vm.constraintsFlag = false;
+      vm.generatorFlag = false;
+    };
+
+    (function setDefault() {
+      vm.clearFlags();
+      vm.homeFlag = true;
+    }
+    )()
+
+    vm.close = function () {
       $mdSidenav('left').close()
         .then(function () {
           // $log.debug('close LEFT is done');
         });
     };
 
-    $scope.showHome = function () {
+    vm.showHome = function () {
       $mdSidenav('left').close()
       $rootScope.$emit('hide', {})
       $rootScope.$emit('home', {})
+      vm.clearFlags();
+      vm.homeFlag = true;
     }
 
-    $scope.showFullSchedule = function () {
+    vm.showFullSchedule = function () {
       $mdSidenav('left').close()
       $rootScope.$emit('hide', {})
       $rootScope.$emit('fullSchedule', {})
+      vm.clearFlags();
+      vm.fullScheduleFlag = true;
     }
 
-    $scope.showNurseSchedule = function () {
+    vm.showNurseSchedule = function () {
       $mdSidenav('left').close()
       $rootScope.$emit('hide', {})
       $rootScope.$emit('nurseSchedule', {})
+      vm.clearFlags();
+      vm.nurseScheduleFlag = true;
     }
 
-    $scope.showCheckConstraints = function () {
+    vm.showCheckConstraints = function () {
       $mdSidenav('left').close()
       $rootScope.$emit('hide', {})
       $rootScope.$emit('constraints', {})
+      vm.clearFlags();
+      vm.constraintsFlag = true;
     }
 
-    $scope.showGenerateSchedule = function () {
+    vm.showGenerateSchedule = function () {
       $mdSidenav('left').close()
       $rootScope.$emit('hide', {})
       $rootScope.$emit('generator', {})
+      vm.clearFlags();
+      vm.generatorFlag = true;
     }
   });

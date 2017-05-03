@@ -37,23 +37,23 @@
           <md-toolbar class="md-theme-indigo">
             <h1 class="md-toolbar-tools">Menu</h1>
           </md-toolbar>
-          <md-content ng-controller="LeftCtrl" class="nav-content">
-            <md-button ng-click="showHome()" class="md-primary nav-option naw-option--normal">
+          <md-content ng-controller="LeftCtrl as $leftNavCtrl" class="nav-content">
+            <md-button ng-class="$leftNavCtrl.homeFlag ? 'nav-option--chosen' : ''" ng-click="$leftNavCtrl.showHome()" class="md-primary nav-option nav-option--normal">
               Home
             </md-button>
-            <md-button ng-click="showFullSchedule()" class="md-primary nav-option naw-option--normal">
-              Full scheduleyyy
+            <md-button ng-class="$leftNavCtrl.fullScheduleFlag ? 'nav-option--chosen' : ''" ng-click="$leftNavCtrl.showFullSchedule()" class="md-primary nav-option nav-option--normal">
+              Full schedule
             </md-button>
-            <md-button ng-click="showNurseSchedule()" class="md-primary nav-option naw-option--normal">
+            <md-button ng-class="$leftNavCtrl.nurseScheduleFlag ? 'nav-option--chosen' : ''" ng-click="$leftNavCtrl.showNurseSchedule()" class="md-primary nav-option nav-option--normal">
               Schedule for nurse
             </md-button>
-            <md-button ng-click="showCheckConstraints()" class="md-primary nav-option naw-option--normal">
+            <md-button ng-class="$leftNavCtrl.constraintsFlag ? 'nav-option--chosen' : ''" ng-click="$leftNavCtrl.showCheckConstraints()" class="md-primary nav-option nav-option--normal">
               Check Constraints
             </md-button>
-            <md-button ng-click="showGenerateSchedule()" class="md-primary nav-option naw-option--normal">
+            <md-button ng-class="$leftNavCtrl.generatorFlag ? 'nav-option--chosen' : ''" ng-click="$leftNavCtrl.showGenerateSchedule()" class="md-primary nav-option nav-option--normal">
               Generate new schedule
             </md-button>
-            <md-button hide-gt-md ng-click="close()" class="md-warn nav-option nav-option--close">
+            <md-button hide-gt-md ng-click="$leftNavCtrl.close()" class="md-warn nav-option nav-option--close">
               Close Sidenav
             </md-button>
           </md-content>

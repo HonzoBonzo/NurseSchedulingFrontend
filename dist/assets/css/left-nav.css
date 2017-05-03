@@ -18,8 +18,10 @@
     width: 100%;
     padding: 5px 0px 5px 0px;
     margin: 0px;
-    font-size: 15px; }
-  .nav-content .naw-option--normal {
+    font-size: 17px; }
+  .nav-content .nav-option--chosen {
+    background: #ECECEC; }
+  .nav-content .nav-option--normal {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
   .nav-content .nav-option--close {
     border-bottom: 1px solid grey; }

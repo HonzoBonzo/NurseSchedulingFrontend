@@ -1,7 +1,7 @@
 var app = angular.module('myApp')
 app.controller('HomeController', function($scope, $rootScope) {
   var vm = this;
-  vm.showMe = false;
+  vm.showMe = true;
 
   $rootScope.$on("hide", function() {
     vm.showMe = false;
