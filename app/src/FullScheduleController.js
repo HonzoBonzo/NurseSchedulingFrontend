@@ -1,5 +1,5 @@
 var app = angular.module('myApp')
-app.controller('FullScheduleController', function($scope, $rootScope, $http) {
+app.controller('FullScheduleController', function($scope, $rootScope, $http, ServerService) {
   var vm = this;
   vm.showMe = false;
 
@@ -9,24 +9,14 @@ app.controller('FullScheduleController', function($scope, $rootScope, $http) {
 
   $rootScope.$on("fullSchedule", function() {
     vm.showMe = true;
-    getJson();
+    vm.fullScheduleJson = null; 
+    
+    var promise = ServerService.getFullScheduleJson();
+    promise.then(data => {
+      vm.fullScheduleJson = data;
+      console.log(vm.fullScheduleJson)
+    })
   })
 
-  vm.fullScheduleJson = null;
-
-  function getJson() {
-    $http({
-      method: 'GET',
-      url: 'http://localhost:3000/results'
-    }).then(
-      function success(response) {
-        vm.fullScheduleJson = response;
-        console.log('pobralem jsona z bazy danych!', vm.fullScheduleJson);
-      }, 
-      function failed(response) {
-        console.log('blad polaczena z baza danych!');
-      }
-    )
-  }
 
 })
