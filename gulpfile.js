@@ -11,6 +11,13 @@ var notify = require(`gulp-notify`);
 var cache = require(`gulp-cache`);
 var livereload = require(`gulp-livereload`);
 var del = require(`del`);
+var open = require(`gulp-open`);
+var sequnce = require(`gulp-run-sequence`);
+
+gulp.task(`open`, function() {
+  return gulp.src(`index.html`)
+    .pipe(open());
+})
 
 gulp.task(`styles`, function() {
   return sass('app/styles/**/*.scss')
@@ -54,8 +61,10 @@ gulp.task(`index`, function() {
     // .pipe(notify({ message: `index changed and reloaded` }));
 });
 
-gulp.task(`serve`, [`clean`], function() {
-    gulp.start(`watch`, `styles`, `scripts`);
+gulp.task(`serve`, function() {
+    sequnce('clean', 'styles', 'scripts', 'open', 'watch', function() {
+      console.log('Gulp serving...')
+    })
 });
 
 gulp.task(`watch`, function() {
@@ -63,6 +72,7 @@ gulp.task(`watch`, function() {
   livereload.listen();
   // Watch any files in dist/, reload on change
   gulp.watch(['dist/**']).on('change', livereload.changed);
+  gulp.watch(['index.html']).on('change', livereload.changed);
   // Watch .scss files
   gulp.watch(`app/styles/**/*.scss`, [`styles`]);
   // Watch .js files
