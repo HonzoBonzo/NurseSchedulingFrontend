@@ -50,13 +50,13 @@ app.controller('NurseScheduleController', function($scope, $rootScope, ServerSer
   }
 
   vm.changeNurse = function () {
-    console.log(vm.chosenNurse.nurseId);
+    // console.log(vm.chosenNurse.nurseId);
     vm.nurseJson = vm.allNurseJson.filter(nurseJson => {
       return nurseJson.nurseId === vm.chosenNurse.nurseId;
     })
     vm.nurseJson = vm.nurseJson[0];
     nurseJsonToWeekJson();
-    console.log(vm.nurseJson)
+    // console.log(vm.nurseJson)
   }
 
   vm.getSelectedText = function() {

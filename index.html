@@ -90,7 +90,42 @@
               </div>
               <div ng-controller="FullScheduleController as $fullCtrl">
                 <div ng-if="$fullCtrl.showMe">
-                  tu bedzie FullSchedule
+                  <div class="o-legend" md-whiteframe="5">
+                    <div class="c-legend-element">
+                      <span>Early: </span>
+                      <span class="c-shift--early">&nbsp;&nbsp;&nbsp;</span>
+                    </div>
+                    <div class="c-legend-element">
+                      <span>Day: </span>
+                      <span class="c-shift--day">&nbsp;&nbsp;&nbsp;</span>
+                    </div>
+                    <div class="c-legend-element">
+                      <span>Late: </span>
+                      <span class="c-shift--late">&nbsp;&nbsp;&nbsp;</span>
+                    </div>
+                    <div class="c-legend-element">
+                      <span>Night: </span>
+                      <span class="c-shift--night">&nbsp;&nbsp;&nbsp;</span>
+                    </div>
+                  </div>
+                  <div class="o-full-schedule">
+                    <div class="c-full-day" 
+                      ng-repeat="day in $fullCtrl.fullScheduleJson track by $index"
+                      md-whiteframe="5">
+                      <div class="c-day-name">{{$fullCtrl.getDayName($index)}}</div>
+                      <div class="c-shift" ng-repeat="shift in day.shifts">
+                        <span>{{shift.nurseName}}</span>
+                        <span ng-class="
+                          shift.signature==='E' ? 'c-shift--early' 
+                            : (shift.signature==='D' ? 'c-shift--day' 
+                            : (shift.signature==='L' ? 'c-shift--late' 
+                            : 'c-shift--night'))
+                          ">
+                          &nbsp;&nbsp;&nbsp;
+                        </span>
+                      </div>  
+                    </div>
+                  </div>
                 </div>
               </div>
 

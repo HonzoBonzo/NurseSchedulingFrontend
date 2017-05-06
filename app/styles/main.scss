@@ -1,3 +1,8 @@
+$early_color : yellow;
+$day_color: orange;
+$late_color: grey;
+$night_color: black;
+
 body {
     height: 100%;
 }
@@ -27,20 +32,20 @@ body {
 }
 
 .c-day--early{
-    background: yellow;
+    background: $early_color;
 }
 
 .c-day--day{
-    background: orange;
+    background: $day_color;
 }
 
 .c-day--late{
-    background: grey;
+    background: $late_color;
     color: white;
 }
 
 .c-day--night{
-    background: black;
+    background: $night_color;
     color: white;
 }
 
@@ -50,3 +55,73 @@ body {
 }
 
 
+
+
+.o-full-schedule{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+    align-items: center;
+    height: 100%;
+    max-width: 1150px;
+}
+
+.c-full-day {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    background: #F5F5F5;
+    margin: 5px;
+    width: 150px;
+    height: 300px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.c-shift {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-bottom: 1px solid #DADADA;
+}
+
+.c-shift--early{
+    background: $early_color;
+}
+
+.c-shift--day{
+    background: $day_color;
+}
+
+.c-shift--late{
+    background: $late_color;
+}
+
+.c-shift--night{
+    background: $night_color;
+    color: white;
+}
+
+.o-legend{
+    background: #F5F5F5;    
+    margin: 10px 0px 10px 5px;
+    width: 150px;
+}
+
+.c-legend-element{
+    display: flex;
+    justify-content: space-between;
+    
+    padding: 2px 5px 2px 5px;
+    border-bottom: 1px solid #DADADA;
+}
+
+.c-day-name{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}

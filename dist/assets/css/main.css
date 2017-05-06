@@ -46,3 +46,76 @@ body {
 .c-day--off {
   background: white;
   color: black; }
+
+.o-full-schedule {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -ms-flex-pack: start;
+      justify-content: start;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 100%;
+  max-width: 1150px; }
+
+.c-full-day {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: stretch;
+      align-items: stretch;
+  background: #F5F5F5;
+  margin: 5px;
+  width: 150px;
+  height: 300px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 20px; }
+
+.c-shift {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom: 1px solid #DADADA; }
+
+.c-shift--early {
+  background: yellow; }
+
+.c-shift--day {
+  background: orange; }
+
+.c-shift--late {
+  background: grey; }
+
+.c-shift--night {
+  background: black;
+  color: white; }
+
+.o-legend {
+  background: #F5F5F5;
+  margin: 10px 0px 10px 5px;
+  width: 150px; }
+
+.c-legend-element {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  padding: 2px 5px 2px 5px;
+  border-bottom: 1px solid #DADADA; }
+
+.c-day-name {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  margin-bottom: 10px; }
