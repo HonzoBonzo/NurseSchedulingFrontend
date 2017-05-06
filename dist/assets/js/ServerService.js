@@ -5,10 +5,26 @@ app.service('ServerService', function($http) {
   service.getNurses = getNurses
   service.testService = testService
   service.getNurseScheduleJson = getNurseScheduleJson
+  service.getConstraintsJson = getConstraintsJson
 
 //TODO add resolves to route-config!!!
   function testService() {
     return {success: 'oki :)'};
+  }
+
+  function getConstraintsJson() {
+    return $http({
+      method: 'GET',
+      url: 'http://localhost:3000/constraints'
+    }).then(
+      function success(response) {
+        return response.data;
+      },
+      function failed(response) {
+        console.log('blad polaczena z serverem, obczaj node czy dziala!');
+        return response
+      }
+    )
   }
 
   function getNurses() {

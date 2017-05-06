@@ -4,7 +4,6 @@ $late_color: grey;
 $night_color: black;
 
 body {
-    height: 100%;
 }
 
 .c-label{
@@ -124,4 +123,13 @@ body {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+}
+
+.o-constraints{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.c-constraint{
+    margin: 15px 40px 5px 5px;
 }
