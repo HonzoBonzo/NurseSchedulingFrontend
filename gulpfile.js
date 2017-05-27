@@ -14,10 +14,11 @@ var del = require(`del`);
 var open = require(`gulp-open`);
 var sequnce = require(`gulp-run-sequence`);
 var nodemon = require('gulp-nodemon');
-var exec = require('gulp-exec');
+var exec = require('child_process').exec;
 
 gulp.task(`nodemon`, function() {
   nodemon({script: '../NurseSchedulingServer/app.js'})
+  exec('java -jar ../NurseSchedulingServer/nsp.jar');
 })
 
 gulp.task(`open`, function() {
