@@ -23,12 +23,15 @@ app.controller('FullScheduleController', function($scope, $rootScope, $http, Ser
 
   $rootScope.$on("fullSchedule", function() {
     vm.showMe = true;    
+    getData();
+  })
+
+  function getData() {
     var promise = ServerService.getFullScheduleJson();
     promise.then(data => {
       vm.fullScheduleJson = data;
       console.log(vm.fullScheduleJson)
     })
-  })
-
+  }
 
 })
