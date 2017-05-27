@@ -21,10 +21,6 @@ app.controller('FullScheduleController', function($scope, $rootScope, $http, Ser
     vm.showMe = false;
   })
 
-  $rootScope.$on("storeActualData", function() {
-    getData();
-  })
-
   $rootScope.$on("fullSchedule", function() {
     vm.showMe = true;    
     getData();

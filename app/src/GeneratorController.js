@@ -1,5 +1,5 @@
 var app = angular.module('myApp')
-app.controller('GeneratorController', function($scope, $rootScope, ServerService) {
+app.controller('GeneratorController', function($timeout, $scope, $rootScope, ServerService) {
   var vm = this;
   vm.showMe = false;
   vm.msg = {};
@@ -10,7 +10,11 @@ app.controller('GeneratorController', function($scope, $rootScope, ServerService
       vm.msg = data;
       console.log(vm.msg)
       if(vm.msg.code === 200) {
-        $rootScope.$emit('storeActualData', {})
+        $timeout(function() {
+          angular.element(
+            document.querySelector('#fullSchedule')
+          ).triggerHandler('click');
+        }, 0);
       }
     });
   }
