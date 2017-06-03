@@ -125,3 +125,29 @@
 
 .c-constraint {
   margin: 15px 40px 5px 5px; }
+
+.c-file-input-form {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+  .c-file-input-form span {
+    margin: 6px 8px; }
+
+.o-first-week-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
+
+.c-custom-button {
+  width: 289px !important;
+  height: 60px !important;
+  margin-left: 0px !important;
+  background-color: #d3394c !important; }
+  .c-custom-button:hover {
+    background-color: #722040 !important; }
