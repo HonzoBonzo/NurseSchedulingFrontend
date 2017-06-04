@@ -12,7 +12,7 @@ app.controller('GeneratorController', function($timeout, $scope, $rootScope, Ser
     var promise = ServerService.generateSchedule();
     promise.then(data => {
       vm.msg = data;
-      console.log(vm.msg)
+      // console.log(vm.msg)
       if(vm.msg.code === 200) {
         $timeout(function() {
           vm.loader = false; 
@@ -31,11 +31,17 @@ app.controller('GeneratorController', function($timeout, $scope, $rootScope, Ser
     var r = new FileReader();
 
     r.onloadend = function(e) {
-      var data = e.target.result;
-      vm.fileAddedFlag = true;
+      vm.loader = true;
+      var data = e.target.result; //binary data
       vm.msgInfo = 'You chose file: '+ f.name;
       $scope.$apply();
-      //send your binary data via $http or $resource or do anything else with it
+
+      var promise = ServerService.sendFirstWeek(data);
+      promise.then(response => {
+        vm.fileAddedFlag = true;
+        vm.loader = false;
+        // console.log(response)
+      })
     }
 
     r.readAsBinaryString(f);

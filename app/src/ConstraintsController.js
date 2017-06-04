@@ -6,7 +6,7 @@ app.controller('ConstraintsController', function($scope, $rootScope, ServerServi
 
   vm.checkConstraints = function() {
     ServerService.getConstraintsJson().then(data => {
-      console.log(data)
+      // console.log(data)
       vm.constraintsJson = data;
     })
   }

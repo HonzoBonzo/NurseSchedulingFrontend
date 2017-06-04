@@ -49,7 +49,7 @@ app.service('ServerService', function($http) {
       url: 'http://localhost:3000/nurses'
     }).then(
       function success(response) {
-        console.log('pobralem pielegniarki!');
+        // console.log('pobralem pielegniarki!');
         return response.data;
       }, 
       function failed(response) {
@@ -65,7 +65,7 @@ app.service('ServerService', function($http) {
       url: 'http://localhost:3000/days'
     }).then(
       function success(response) {
-        console.log('pobralem jsona!');
+        // console.log('pobralem jsona!');
         return response.data;
       }, 
       function failed(response) {
@@ -81,7 +81,7 @@ app.service('ServerService', function($http) {
       url: 'http://localhost:3000/results'
     }).then(
       function success(response) {
-        console.log('pobralem jsona!');
+        // console.log('pobralem jsona!');
         return response.data;
       }, 
       function failed(response) {

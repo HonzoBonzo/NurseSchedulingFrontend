@@ -30,7 +30,7 @@ app.controller('FullScheduleController', function($scope, $rootScope, $http, Ser
     var promise = ServerService.getFullScheduleJson();
     promise.then(data => {
       vm.fullScheduleJson = data;
-      console.log(vm.fullScheduleJson)
+      // console.log(vm.fullScheduleJson)
     })
   }
 

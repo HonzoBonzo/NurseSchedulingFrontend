@@ -151,3 +151,8 @@
   background-color: #d3394c !important; }
   .c-custom-button:hover {
     background-color: #722040 !important; }
+
+.c-loader {
+  position: absolute;
+  top: 50%;
+  right: 50%; }
