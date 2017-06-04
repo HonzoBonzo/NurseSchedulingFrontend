@@ -177,24 +177,26 @@
 
               <div ng-controller="ConstraintsController as $constrCtrl">
                 <div ng-if="$constrCtrl.showMe">
-                  <md-button class="md-raised md-warn" 
-                    ng-click="$constrCtrl.checkConstraints()">
+                  <div ng-show="$constrCtrl.loader" layout="row" layout-sm="column" layout-align="space-around">
+                    <md-progress-circular class="c-loader" md-diameter="96" md-mode="indeterminate"></md-progress-circular>
+                  </div>
+                  <md-button class="md-raised md-warn" style="margin-left: 0px !important;" ng-click="$constrCtrl.checkConstraints()">
                     Check Constraints
                   </md-button>
 
                   <div class="o-constraints">
                     <div hardConstraints>   
                       <div class="c-constraint">
-                        Hard Constraints failed: {{$constrCtrl.constraintsJson[0].failedHardSum}}
+                        <strong style="font-size: 30px; margin-bottom: 10px;">Hard Constraints failed in total: {{$constrCtrl.constraintsJson[0].failedHardSum}}</strong>
                         <md-progress-linear 
                           class="md-warn"
                           md-mode="determinate" 
                           value="{{$constrCtrl.constraintsJson[0].failedHardSum}}">
                         </md-progress-linear>
                       </div>
-                      <div class="c-constraint"
-                        ng-repeat="hard in $constrCtrl.constraintsJson[0].failedHards track by $index">
-                        Hard{{$index+1}}: {{hard}}
+                      <div class="c-constraint" ng-repeat="hard in $constrCtrl.constraintsJson[0].failedHards track by $index">
+                        <strong class="c-labell">Hard{{$index+1}}: {{hard}}</strong>
+                        <small class="c-description" ng-bind="$constrCtrl.hardDesc[$index].desc"></small>
                         <md-progress-linear 
                           class="md-warn"
                           md-mode="determinate" 
@@ -205,15 +207,17 @@
 
                     <div softConstraints>
                       <div class="c-constraint">
-                        Soft Constraints failed: {{$constrCtrl.constraintsJson[1].failedSoftSum}}
+                        <strong style="font-size: 30px; margin-bottom: 10px;">Soft Constraints failed in total: {{$constrCtrl.constraintsJson[1].failedSoftSum}}</strong>
+                        <strong class="c-description">Total Penalty: {{$constrCtrl.totalPenalty}}</strong>
                         <md-progress-linear 
                           md-mode="determinate" 
                           value="{{$constrCtrl.constraintsJson[1].failedSoftSum}}">
                         </md-progress-linear>
                       </div>
-                      <div class="c-constraint" 
-                        ng-repeat="soft in $constrCtrl.constraintsJson[1].failedSofts track by $index">
-                        Soft{{$index+1}}: {{soft}}
+                      <div class="c-constraint" ng-repeat="soft in $constrCtrl.constraintsJson[1].failedSofts track by $index">
+                        <strong class="c-labell">Soft{{$index+1}}: {{soft}}</strong>
+                        <strong class="c-description">Value: {{$constrCtrl.softDesc[$index].value}}, Penalty: {{$constrCtrl.softDesc[$index].value * soft}}</strong>
+                        <small class="c-description" ng-bind="$constrCtrl.softDesc[$index].desc"></small>
                         <md-progress-linear 
                           md-mode="determinate" 
                           value="{{soft/$constrCtrl.constraintsJson[1].failedSoftSum*100}}">

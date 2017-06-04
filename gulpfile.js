@@ -83,7 +83,6 @@ gulp.task('default', ['watch', 'connect']);
 
 gulp.task(`serve`, function() {
     sequnce(
-      'nodemon', 
       'clean', 
       'styles', 
       'scripts', 

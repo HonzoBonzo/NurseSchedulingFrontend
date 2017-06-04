@@ -127,11 +127,14 @@ body {
 
 .o-constraints{
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
 }
 
 .c-constraint{
-    margin: 15px 40px 5px 5px;
+    margin: 35px 40px 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .c-file-input-form{
@@ -168,4 +171,15 @@ body {
     position: absolute; 
     top: 50%; 
     right: 50%;
+}
+
+.c-labell {
+    font-size: 25px;
+}
+
+.c-description {
+    font-size: 22px;
+    color: #4F4F4F;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
