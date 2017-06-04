@@ -32,7 +32,7 @@ app.controller('GeneratorController', function($timeout, $scope, $rootScope, Ser
 
     r.onloadend = function(e) {
       vm.loader = true;
-      var data = e.target.result; //binary data
+      var data = e.target.result;
       vm.msgInfo = 'You chose file: '+ f.name;
       $scope.$apply();
 
@@ -40,7 +40,6 @@ app.controller('GeneratorController', function($timeout, $scope, $rootScope, Ser
       promise.then(response => {
         vm.fileAddedFlag = true;
         vm.loader = false;
-        // console.log(response)
       })
     }
 

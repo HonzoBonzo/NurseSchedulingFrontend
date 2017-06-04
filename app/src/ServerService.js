@@ -13,10 +13,11 @@ app.service('ServerService', function($http) {
 
 //TODO add resolves to route-config!!!
   function sendFirstWeek(data) {
+    const week = {week: JSON.stringify(data)}
     return $http({
       method: 'POST',
       url: serverAddress + '/firstWeek',
-      body: data
+      data: week
     }).then(
       function success(response) {
         return response.data;
