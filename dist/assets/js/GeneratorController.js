@@ -7,19 +7,34 @@ app.controller('GeneratorController', function($timeout, $scope, $rootScope, Ser
   vm.msgInfo = '';
   vm.loader = false;
 
-  vm.generateSchedule = function() {
+  vm.generateACO = function() {
     vm.loader = true;
-    var promise = ServerService.generateSchedule();
+    var promise = ServerService.generateACO();
     promise.then(data => {
       vm.msg = data;
-      // console.log(vm.msg)
       if(vm.msg.code === 200) {
         $timeout(function() {
           vm.loader = false; 
           angular.element(
             document.querySelector('#fullSchedule')
           ).triggerHandler('click');
-        }, 2000);
+        });
+      }
+    });
+  }
+
+  vm.generateSchedule = function() {
+    vm.loader = true;
+    var promise = ServerService.generateSchedule();
+    promise.then(data => {
+      vm.msg = data;
+      if(vm.msg.code === 200) {
+        $timeout(function() {
+          vm.loader = false; 
+          angular.element(
+            document.querySelector('#fullSchedule')
+          ).triggerHandler('click');
+        });
       }
     });
   }

@@ -8,10 +8,41 @@ app.service('ServerService', function($http) {
   service.getConstraintsJson = getConstraintsJson
   service.generateSchedule = generateSchedule
   service.sendFirstWeek = sendFirstWeek
+  service.generateACO = generateACO
 
   const serverAddress = 'http://localhost:3000'
 
 //TODO add resolves to route-config!!!
+  function getStats() {
+    return $http({
+      method: 'GET',
+      url: serverAddress + '/getStats'
+    }).then(
+      function success(response) {
+        return response.data;
+      },
+      function failed(response) {
+        console.log('blad polaczena z serverem, obczaj node czy dziala!');
+        return response
+      }
+    )
+  }
+
+  function generateACO() {
+    return $http({
+      method: 'GET',
+      url: serverAddress + '/runJarAndExe'
+    }).then(
+      function success(response) {
+        return response.data;
+      },
+      function failed(response) {
+        console.log('blad polaczena z serverem, obczaj node czy dziala!');
+        return response
+      }
+    )
+  }
+
   function sendFirstWeek(data) {
     const week = {week: JSON.stringify(data)}
     return $http({
