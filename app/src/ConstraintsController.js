@@ -32,6 +32,7 @@ app.controller('ConstraintsController', function($scope, $rootScope, ServerServi
       // console.log(data)
       $timeout(()=>{
         vm.constraintsJson = data;
+        $scope.$apply();
         vm.loader = false;
         vm.totalPenalty = checkTotalPenalty();
       }, 500);
